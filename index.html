@@ -1,0 +1,34 @@
+<html>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <title> home  </title> <!-- se muestra ese título en la pestaña de safari-->
+    <h1> BIENVENIDO AL HOME. HAY {{total_episodes}} EPISODIOS EN LA API </h1>
+  </head>                                            
+  <body>
+  
+    <p> 
+      <ul>
+      {% if list_episodes %} 
+          {% for episode in list_episodes %} 
+          
+              <li> Name: <a href="/episode/{{ episode.id }}">{{episode.name}}</a>
+              -  Air date: {{episode.air_date}} - Episode code: {{episode.episode}} 
+            </li> 
+        
+          {% endfor %} 
+
+      {% else %}
+          <p> No hay episodios que mostrar </p>
+      {% endif %}
+      </ul>
+   </p>      
+
+   <form action="/search/" method="GET">
+    <input type="text" name='query_input' placeholder="Eg: Rick">
+    <input type="submit" value="Search">
+  </form>
+
+  </body>
+   
+</html>
+

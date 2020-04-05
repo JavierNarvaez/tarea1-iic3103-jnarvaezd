@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title> Character {{name}}  </title> <!-- se muestra ese título en la pestaña de safari-->
+    <h1> Información de la ubicación {{name}}. </h1>
+  </head>                                            
+  <body>
+    <div class="wrapper">   
+      <nav class="main-nav">
+        <a href="http://127.0.0.1:8000/">Back Home</a> <!-- CAMBIARLE EL LINK AL DEL GITHUB PAGES-->
+      </nav>
+    </div>
+    <p> 
+        {% if name %} 
+
+        <li> Name: {{name}} </li> 
+        <li> Type: {{loc_type}} </li> 
+        <li> Dimension: {{dimension}} </li> 
+
+          {% if residents %}
+
+          <ul>
+
+            {% for resident in residents %} 
+            
+            <li> Resident name: {{resident.name}}  </li>   <!-- CAMBIARLE EL LINK AL DEL GITHUB PAGES-->
+
+            {% endfor %} 
+
+          </ul>
+
+
+          {% else %}
+              <p> No hay residentes en esta ubicación</p>
+          {% endif %}
+
+        {% endif %}
+   </p>      
+  </body>
+   
+</html>
+

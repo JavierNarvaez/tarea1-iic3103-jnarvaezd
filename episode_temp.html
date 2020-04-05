@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title> Episode {{episode}}  </title> <!-- se muestra ese título en la pestaña de safari-->
+    <h1> Información del episodio {{episode}}. </h1>
+  </head>                                            
+  <body>
+    <div class="wrapper">   
+      <nav class="main-nav">
+        <a href="http://127.0.0.1:8000/">Back Home</a> <!-- CAMBIARLE EL LINK AL DEL GITHUB PAGES-->
+      </nav>
+    </div>
+    <p> 
+        {% if name %} 
+
+        <li> Name: {{name}} -  Air date: {{air_date}} - Episode code: {{episode}} </li> 
+
+          {% if characters %}
+
+          <ul>
+
+            {% for character in characters %} 
+            
+              <li> Character name: <a href="http://127.0.0.1:8000/character/{{ character.id }}" >{{character.name}} </a> </li>   
+          
+            {% endfor %} 
+
+          </ul>
+
+          {% else %}
+              <p> El episodio no tiene personajes</p>
+          {% endif %}
+
+        {% endif %}
+   </p>      
+  </body>
+   
+</html>
+

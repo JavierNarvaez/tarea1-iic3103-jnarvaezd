@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title> Character {{name}}  </title> <!-- se muestra ese título en la pestaña de safari-->
+    <h1> Información del personaje {{name}}. </h1>
+  </head>                                            
+  <body>
+    <div class="wrapper">   
+      <nav class="main-nav">
+        <a href="http://127.0.0.1:8000/">Back Home</a> <!-- CAMBIARLE EL LINK AL DEL GITHUB PAGES-->
+      </nav>
+    </div>
+    <p> 
+        {% if name %} 
+
+        <img src={{image}} widht=200 height=200> 
+        <li> Name: {{name}} </li> 
+        <li> Status: {{status}} </li> 
+        <li> Species: {{species}} </li> 
+        <li> Type: {{ch_type}} </li>  
+        <li> Gender: {{gender}} </li>  
+        <li> Origin: <a href="http://127.0.0.1:8000/location/{{ origin.id }}">{{origin.name}} </a> </li>  
+
+          {% if location %}
+
+            <li> Last location name: <a href="http://127.0.0.1:8000/location/{{ location.id }}" >{{location.name}} </a> </li>   <!-- CAMBIARLE EL LINK AL DEL GITHUB PAGES-->
+
+
+          {% else %}
+              <p> El personaje no tiene registrada una última ubicación</p>
+          {% endif %}
+
+          {% if episodes %}
+          <li>Episodes:</li>
+
+          <ul>
+
+            {% for episode in episodes %} 
+            
+              <li> Episode name: {{episode.name}} - Episode code: {{episode.episode}}</li>   <!-- CAMBIARLE EL LINK AL DEL GITHUB PAGES-->
+              
+            {% endfor %} 
+
+          </ul>
+
+          {% else %}
+              <p> El personaje no está en ningún episodio</p>
+          {% endif %}
+
+          
+
+        {% endif %}
+   </p>      
+  </body>
+   
+</html>
+
